@@ -1,0 +1,56 @@
+<!-- задний фон -->
+
+<ul class="circles">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<!-- задний фон -->
+
+<div class="session-box">
+  <div class="container d-flex align-items-center text-center justify-content-center h-100">
+    <div class="side-text">
+      <div style="height: 60px">
+        <h3>Регистрация</h3>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <div style="height: 60px">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder: "Введите почту" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <% if @minimum_password_length %>
+          <% end %>
+          <div style="height: 60px">
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "Введите пароль" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div style="height: 60px">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder: "Подтвердите пароль" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Продолжить", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

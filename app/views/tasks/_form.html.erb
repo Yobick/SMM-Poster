@@ -1,0 +1,40 @@
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container-fluid">
+    <div class="field">
+      <%= form.label "Дата" %>
+      <%= form.datetime_select :date, {order: [:minute, :hour, :day, :month, :year] }, class: "btn btn-light" %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Социальная сеть" %>
+        <%= form.select :social_name, %w[Telegram Vkontakte] %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Содержание" %>
+      <label class="btn btn-primary w-100">
+        Выберите изображение
+        <span style="display:none">
+          <%= form.file_field :photo %>
+        </span>
+      </label>
+      <%= form.text_area :posts, :class => 'form-control', size: "90x10" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Создать задачу", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

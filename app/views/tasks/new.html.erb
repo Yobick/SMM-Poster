@@ -1,0 +1,10 @@
+<div class="menu container-v1 bg-dark">
+  <div class="text-center">
+    <h1>Новая задача</h1>
+
+    <%= render 'form', task: @task %>
+    <div style="padding-top: 10px">
+      <%= link_to 'Выйти', tasks_path, class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>

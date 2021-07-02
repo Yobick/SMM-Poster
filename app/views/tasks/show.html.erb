@@ -1,0 +1,25 @@
+<div class="menu">
+  <div class="text-center">
+    <p id="notice"><%= notice %></p>
+
+    <p class="fs-6">
+      <strong>Дата:</strong>
+      <%= @task.date %>
+    </p>
+
+    <p class="fs-6">
+      <strong>Соц. сеть:</strong>
+      <%= @task.social_name %>
+    </p>
+
+    <p class="fs-6" style="word-wrap: break-word">
+      <strong>Содержание:</strong>
+      <%= @task.posts %>
+    </p>
+
+    <div class="p-2 bd-highlight">
+      <%= link_to 'Изменить', edit_task_path(@task), class: "btn btn-dark" %>
+    </div>
+    <%= link_to 'Выйти', tasks_path, class: "btn btn-dark"  %>
+  </div>
+</div>

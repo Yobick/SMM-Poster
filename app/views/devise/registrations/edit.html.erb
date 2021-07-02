@@ -1,0 +1,71 @@
+<!-- задний фон -->
+
+<ul class="circles">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li>SMM-Poster</li>
+</ul>
+
+<!-- задний фон -->
+
+
+<div class="container d-flex" style="position: fixed">
+  <div class="side-panel-edit side-text text-center bg-dark">
+    <h2>Смена пароля и почты</h2>
+    <div style="height: 60px"></div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="container">
+        <div class="field">
+          <div style="height: 60px">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control w-100" %>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <div style="height: 60px">
+             <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "Введите новый пароль" %>
+          </div>
+          <% if @minimum_password_length %>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <div style="height: 60px">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder: "Подтвердите пароль" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div style="height: 60px">
+            <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder: "Введите старый пароль" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Обновить", class: "btn btn-primary w-50" %>
+        </div>
+        <% end %>
+        <div style="height: 50px"></div>
+
+        <h3>Удалить аккаунт</h3>
+
+        <div style="height: 20px"></div>
+        <%= button_to "Удалить мой аккаунт?", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete, class:"btn btn-primary w-50" %>
+        <div style="height: 40px"></div>
+          <%= link_to "Назад", :tasks, class:"btn btn-primary"%>
+    </div>
+  </div>
+</div>

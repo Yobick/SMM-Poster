@@ -1,0 +1,31 @@
+<div class="container-fluid d-flex" style="margin-left: 8cm; margin-right: auto">
+  <p id="notice"><%= notice %></p>
+
+    <table class="table d-flex text-center table-hover table-dark flex-column">
+      <thead>
+        <tr class="row">
+          <th class="col-1">№ Токена</th>
+          <th class="col-3">API-ключ</th>
+          <th class="col-2">Id чат группы</th>
+          <th class="col-1">Соц. сеть</th>
+          <th class="col-3"><%= link_to 'Добавить токен', new_token_path, class: "btn btn-primary" %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tokens.each do |token| %>
+          <tr class="row">
+            <td class="col-1"><%= token.id %></td>
+            <td style="overflow: auto" class="col-3"><%= token.token_use %></td>
+            <td class="col-2"><%= token.target_id %></td>
+            <td class="col-1"><%= token.social_name %></td>
+            <td class="col-3">
+              <%= link_to 'Показать', token, class: "btn btn-dark"  %>
+              <%= link_to 'Изменить', edit_token_path(token), class: "btn btn-dark"  %>
+              <%= link_to 'Удалить', token, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+</div>
